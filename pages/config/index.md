@@ -1,0 +1,1 @@
+关于 Ubuntu 和 Debian

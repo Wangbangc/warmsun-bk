@@ -1,0 +1,24 @@
+gzip on;
+gzip_min_length 1k;
+gzip_vary on;
+gzip_comp_level 5;
+gzip_buffers 16 8k;
+gzip_http_version 1.1;
+gzip_types text/plain text/html text/css text/javascript application/javascript application/json text/xml application/xml application/xml+rss image/svg+xml application/font-sfnt;
+
+server {
+    listen       80  default_server;
+
+    error_page  404  /404.html;
+
+    location / {
+        root   /usr/share/nginx/html;
+    }
+}
+
+server {
+    listen        80;
+    server_name   www.feling.net;
+
+    rewrite ^/(.*) https://feling.net/$1 permanent;
+}
